@@ -1,0 +1,54 @@
+import random
+'''Snake Water Gun Game'''
+computer = ["snake", "water", "gun"]
+p_points = 0
+c_points = 0
+chances = 0
+print("         If you input something else from the asked one computer will get 1 point")
+while (chances < 10):
+    try:            
+        c_choice = random.choice(computer)
+        p_choice = (input("\nEnter 'snake' 'water' or 'gun' : "))
+        if (c_choice==p_choice):
+            c_points += 1
+            p_points += 1
+        
+        elif (c_choice=="snake" and p_choice=="water"):
+            c_points += 1
+        
+        elif (c_choice=="snake" and p_choice=="gun"):
+            p_points += 1
+        
+        elif (c_choice=="water" and p_choice=="snake"):
+            p_points += 1
+        
+        elif (c_choice=="water" and p_choice=="gun"):
+            c_points += 1
+        
+        elif (c_choice=="gun"and p_choice=="water"):
+            p_points += 1
+        
+        elif (c_choice=="gun" and p_choice=="snake"):
+            c_points += 1
+
+        else:
+            c_points += 1
+        
+    except:
+        print("Wrong input")
+        
+    print(f"(comp:{c_choice}) and (you:{p_choice})")
+    print(f"computers points : {c_points} and your points are {p_points}")
+    chances += 1
+    
+if c_points>p_points:
+    print("You lost the game")
+
+elif c_points==p_points:
+    print("It was a tie")
+
+else:
+    print("You won")
+    
+
+exitinput = input("Enter anything to exit : ")
